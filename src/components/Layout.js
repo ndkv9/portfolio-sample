@@ -1,5 +1,6 @@
 import React from "react"
 import NavBar from "./NavBar"
+import "../styles/index.css"
 
 export default function Layout(props) {
   return (
