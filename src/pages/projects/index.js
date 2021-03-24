@@ -2,6 +2,7 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../../components/Layout"
 import * as styles from "../../styles/projects.module.css"
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function Projects({ data }) {
   console.log(data)
@@ -38,6 +39,13 @@ export const query = graphql`
           slug
           stack
           title
+          thumb {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
         id
       }
