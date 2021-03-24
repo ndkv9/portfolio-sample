@@ -2,6 +2,7 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import * as styles from "../styles/home.module.css"
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function Home() {
   return (
@@ -15,8 +16,20 @@ export default function Home() {
             My Projects
           </Link>
         </div>
-        <img src="/banner.png" alt="site banner" />
+        <StaticImage src="../images/banner.png" alt="site banner" />
       </section>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "banner.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
